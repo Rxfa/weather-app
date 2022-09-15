@@ -4,11 +4,10 @@ const baseUrl = `http://api.weatherstack.com/current?access_key=${process.env.RE
 
 const getLocation = (location) => {
   console.log(`axios says you searched for: ${location}`);
-  axios.get(`${baseUrl}${location}`)
-    .then((response) => {
-      console.log(response.data);
-      return response.data;
-    });
+  const request = axios.get(`${baseUrl}${location}`);
+  return request.then((response) => {
+    return response.data;
+  });
 };
 
-export default { getLocation };
+export default {getLocation};
