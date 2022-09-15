@@ -1,11 +1,14 @@
 import {useState, useEffect} from 'react';
 import Form from './components/Form';
 import Profile from './components/Profile';
+import geolocation from './services/geolocation';
 import searchService from './services/searchService';
 
 const App = () =>{
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
+
+  geolocation.getUserLocation();
 
   const handleSearch = (event) => {
     event.preventDefault();
