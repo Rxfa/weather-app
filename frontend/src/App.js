@@ -1,14 +1,33 @@
 import {useState, useEffect} from 'react';
 import Form from './components/Form';
 import Profile from './components/Profile';
-import geolocation from './services/geolocation';
 import searchService from './services/searchService';
 
 const App = () =>{
+  const api = navigator.geolocation;
+  const [lat, setLat] = useState(null);
+  const [long, setLong] = useState(null);
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
 
-  geolocation.getUserLocation();
+  useEffect(() => {
+    getUserLocation();
+  }, []);
+
+  const getUserLocation = () => {
+    if (!api) {
+      console.log('Geolocation API is not avaliable in your browser!');
+    } else {
+      api.getCurrentPosition((location) => {
+        const {coords} = location;
+        setLat(coords.latitude);
+        setLong(coords.longitude);
+        console.log(`lat - ${lat}\nlong - ${long}`);
+      }, (error) => {
+        console.log('Error!\nCouldn\'t get your current position');
+      });
+    }
+  };
 
   const handleSearch = (event) => {
     event.preventDefault();
