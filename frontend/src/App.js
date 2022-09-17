@@ -6,7 +6,7 @@ import searchService from './services/searchService';
 const App = () =>{
   const api = navigator.geolocation;
   const [lat, setLat] = useState(null);
-  const [long, setLong] = useState(null);
+  const [lon, setLon] = useState(null);
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
 
@@ -21,8 +21,8 @@ const App = () =>{
       api.getCurrentPosition((location) => {
         const {coords} = location;
         setLat(coords.latitude);
-        setLong(coords.longitude);
-        console.log(`lat - ${lat}\nlong - ${long}`);
+        setLon(coords.longitude);
+        console.log(`lat - ${lat}\nlong - ${lon}`);
       }, (error) => {
         console.log('Error!\nCouldn\'t get your current position');
       });
@@ -40,15 +40,15 @@ const App = () =>{
     console.log(`You searched for: ${search}`);
     searchService.getLocation(search)
         .then((response) => {
-          console.log(`new -${response}`);
-          const cityObj = {
-            city: response.request.query,
-            temp: response.current.temperature,
-            feelslike: response.current.feelslike,
-            icon: response.current.weather_icons,
-            description: response.current.weather_descriptions,
-          };
-          setResult(cityObj);
+          console.log(`first res - ${response}`);
+          setLat(response.lat);
+          setLon(response.lon);
+          console.log(`lat - ${lat}\nlong - ${lon}`);
+          searchService.getWeather(lat, lon)
+              .then((response) => {
+                console.log(`second res - ${response}`);
+                const profile = {};
+              });
         });
   };
 
