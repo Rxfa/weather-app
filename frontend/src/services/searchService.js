@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const baseUrl = `http://api.weatherstack.com/current?access_key=${process.env.REACT_APP_API_KEY}&query=`;
-
 const getLocation = (query) => {
   console.log(`axios says you searched for: ${query}`);
   const request = axios

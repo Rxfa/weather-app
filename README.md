@@ -53,7 +53,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The app communicates with the [WeatherStack](https://weatherstack.com/) API to retrieve information about the weather conditions in a given location and then displays it to the user.
+The app starts by getting the coordinates of a given location with the [Geoapify](https://www.geoapify.com/) API, the coordinates are then sent to the [Open-Meteo](https://open-meteo.com/en) API that will return the weather conditions of the aforementioned location.
 
 The user chooses a location by typing it's name in a search bar.
 
