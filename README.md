@@ -18,7 +18,7 @@
   <h3 align="center">Weather app</h3>
 
   <p align="center">
-    An awesome weather app made with Django and React!
+    An awesome weather app made with React!
     <br />
     <a href="https://github.com/rxfa/weather-app/issues">Report Bug</a>
     ·
@@ -62,6 +62,7 @@ The info displayed is:
 * City and Country name
 * Weather description and icon
 * Temperatures (current, min and max)
+* Wind speed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,7 +88,7 @@ The info displayed is:
 
 ### Installation
 
-1. Get a free API Key at [https://weatherstack.com](https://weatherstack.com)
+1. Get a free API Key at [https://www.geoapify.com/](https://www.geoapify.com/)
 2. Clone the repo
 
    ```sh
@@ -100,7 +101,7 @@ The info displayed is:
    npm install
    ```
 
-4. Enter your API with [django-rest-framework-api-key](https://florimondmanca.github.io/djangorestframework-api-key/)
+4. Store the API key as an environment variable
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

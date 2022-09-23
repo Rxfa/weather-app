@@ -7,10 +7,6 @@ const getLocation = (query) => {
           `https://api.geoapify.com/v1/geocode/search?text=${query}&apiKey=${process.env.REACT_APP_GEOLOCATION_API_KEY}`,
       );
   return request.then((response) => {
-    const coordsObj = {
-      lat: response.data.features[0].properties.lat,
-      long: response.data.features[0].properties.lon,
-    };
     return response.data.features[0].properties;
   });
 };

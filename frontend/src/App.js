@@ -9,6 +9,7 @@ const App = () =>{
   const [lon, setLon] = useState(null);
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
+  const [locationName, setLocationName] = useState('');
 
   useEffect(() => {
     getUserLocation();
@@ -40,14 +41,35 @@ const App = () =>{
     console.log(`You searched for: ${search}`);
     searchService.getLocation(search)
         .then((response) => {
-          console.log(`first res - ${response}`);
           setLat(response.lat);
           setLon(response.lon);
+          setLocationName(response.formatted);
           console.log(`lat - ${lat}\nlong - ${lon}`);
           searchService.getWeather(lat, lon)
               .then((response) => {
-                console.log(`second res - ${response}`);
-                const profile = {};
+                const profile = {
+                  name: locationName,
+                  unit: response.daily_units.temperature_2m_min,
+                  yesterday: {
+                    date: response.daily.time[0],
+                    min_temp: response.daily.temperature_2m_min[0],
+                    max_temp: response.daily.temperature_2m_max[0],
+                  },
+                  today: {
+                    date: response.current_weather.time,
+                    min_temp: response.daily.temperature_2m_min[1],
+                    max_temp: response.daily.temperature_2m_max[1],
+                    temp: response.current_weather.temperature,
+                    wind_speed: response.current_weather.windspeed,
+                    wind_direction: response.current_weather.winddirection,
+                  },
+                  tomorrow: {
+                    date: response.daily.time[2],
+                    min_temp: response.daily.temperature_2m_min[2],
+                    max_temp: response.daily.temperature_2m_max[2],
+                  },
+                };
+                setResult(profile);
               });
         });
   };
