@@ -2,6 +2,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
+const d = new Date();
+const getLocalTZ = d.getTime() + (d.getTimezoneOffset() * 60000);
+;
 
 const Profile = ({src}) => (
   <Box
@@ -12,8 +15,9 @@ const Profile = ({src}) => (
     <Typography variant='h2' component='h2'>
       {src.name}
     </Typography>
-    <img src={src.country_flag}
-      alt={`${src.country_flag} flag`}
+    <img src={`https://countryflagsapi.com/png/${src.country}`}
+      alt={`${src.country} flag`}
+      width={'25px'}
     />
     <Grid
       container
@@ -35,7 +39,13 @@ const Profile = ({src}) => (
           time
         </Typography>
         <Typography variant='h4' component='h4'>
-          {`${src.today.date.slice(-5)}`}
+          {
+            `${
+              new Date()
+                  .toLocaleString('en-GB', {timeZone: src.timezone})
+                  .slice(12, 17)
+            }`
+          }
         </Typography>
         <Typography variant='h3' component='h3'>
           temp

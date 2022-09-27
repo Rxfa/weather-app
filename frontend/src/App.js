@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Form from './components/Form';
 import Profile from './components/Profile';
 import searchService from './services/searchService';
@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 const App = () =>{
-  const api = navigator.geolocation;
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
   const [search, setSearch] = useState('');
@@ -32,30 +31,29 @@ const App = () =>{
           setLocationName(response.formatted);
           setCountryName(response.country);
           console.log(`lat - ${lat}\nlong - ${lon}`);
-
-          searchService.getFlag(countryName)
-              .then((response) => {
-                setCountryFlag(response);
-              });
           console.log(`country flag url - ${countryFlag}`);
 
-          searchService.getWeather(lat, lon)
-              .then((response) => {
-                const profile = {
-                  name: locationName,
-                  country_flag: countryFlag,
-                  unit: response.daily_units.temperature_2m_min,
-                  today: {
-                    date: response.current_weather.time,
-                    min_temp: response.daily.temperature_2m_min[1],
-                    max_temp: response.daily.temperature_2m_max[1],
-                    temp: response.current_weather.temperature,
-                    wind_speed: response.current_weather.windspeed,
-                    wind_direction: response.current_weather.winddirection,
-                  },
-                };
-                setResult(profile);
-              });
+          if (lon && lat) {
+            searchService.getWeather(lat, lon)
+                .then((response) => {
+                  const profile = {
+                    name: locationName,
+                    country: countryName,
+                    country_flag: countryFlag,
+                    unit: response.daily_units.temperature_2m_min,
+                    timezone: response.timezone,
+                    today: {
+                      date: response.current_weather.time,
+                      min_temp: response.daily.temperature_2m_min[1],
+                      max_temp: response.daily.temperature_2m_max[1],
+                      temp: response.current_weather.temperature,
+                      wind_speed: response.current_weather.windspeed,
+                      wind_direction: response.current_weather.winddirection,
+                    },
+                  };
+                  setResult(profile);
+                });
+          }
         });
   };
 

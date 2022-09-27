@@ -24,9 +24,11 @@ const getFlag = (country) => {
   const request = axios.get('https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/by-code.json');
   return request.then((response) => {
     const target = () =>{
-      response.find((i) => i.name === country);
     };
-    return target.image;
+    console.log(response.map((i) => {
+      i.name;
+    }));
+    return target;
   });
 };
 
