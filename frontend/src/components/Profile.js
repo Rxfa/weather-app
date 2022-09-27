@@ -1,10 +1,9 @@
+import '../assets/weather-icons-master/css/weather-icons.css';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-const d = new Date();
-const getLocalTZ = d.getTime() + (d.getTimezoneOffset() * 60000);
-;
 
 const Profile = ({src}) => (
   <Box
@@ -47,10 +46,8 @@ const Profile = ({src}) => (
             }`
           }
         </Typography>
-        <Typography variant='h3' component='h3'>
-          temp
-        </Typography>
-        <Typography variant='h3' component='h3'>
+        <i class="wi wi-day-sunny"></i>
+        <Typography mt={6} variant='h2' component='h2'>
           {`${src.today.temp}`}{src.unit}
         </Typography>
       </Grid>
