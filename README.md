@@ -59,7 +59,7 @@ The user chooses a location by typing it's name in a search bar.
 
 The info displayed is:
 
-* City and Country name
+* City and Country name(along with its flag)
 * Weather description and icon
 * Temperatures (current, min and max)
 * Wind speed
@@ -71,7 +71,6 @@ The info displayed is:
 [![HTML][HTML]][HTML-url]
 [![CSS][CSS]][CSS-url]
 [![React][React.js]][React-url]
-[![Node][Node.js]][Node-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,7 +130,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 * Discord -> Rxfa#9148
-* Twitter -> [@rxfa__1](https://twitter.com/rxfa__1)
 
 Project Link: [https://github.com/rxfa/weather_app](https://github.com/rxfa/weather_app)
 

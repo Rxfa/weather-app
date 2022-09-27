@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "dotenv": "^16.0.2"
+    "@mui/icons-material": "^5.10.6"
   }
 }

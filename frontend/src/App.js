@@ -3,6 +3,9 @@ import Form from './components/Form';
 import Profile from './components/Profile';
 import searchService from './services/searchService';
 
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 const App = () =>{
   const api = navigator.geolocation;
   const [lat, setLat] = useState(null);
@@ -10,25 +13,8 @@ const App = () =>{
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
   const [locationName, setLocationName] = useState('');
-
-  useEffect(() => {
-    getUserLocation();
-  }, []);
-
-  const getUserLocation = () => {
-    if (!api) {
-      console.log('Geolocation API is not avaliable in your browser!');
-    } else {
-      api.getCurrentPosition((location) => {
-        const {coords} = location;
-        setLat(coords.latitude);
-        setLon(coords.longitude);
-        console.log(`lat - ${lat}\nlong - ${lon}`);
-      }, (error) => {
-        console.log('Error!\nCouldn\'t get your current position');
-      });
-    }
-  };
+  const [countryName, setCountryName] = useState('');
+  const [countryFlag, setCountryFlag] = useState('');
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -44,17 +30,21 @@ const App = () =>{
           setLat(response.lat);
           setLon(response.lon);
           setLocationName(response.formatted);
+          setCountryName(response.country);
           console.log(`lat - ${lat}\nlong - ${lon}`);
+
+          searchService.getFlag(countryName)
+              .then((response) => {
+                setCountryFlag(response);
+              });
+          console.log(`country flag url - ${countryFlag}`);
+
           searchService.getWeather(lat, lon)
               .then((response) => {
                 const profile = {
                   name: locationName,
+                  country_flag: countryFlag,
                   unit: response.daily_units.temperature_2m_min,
-                  yesterday: {
-                    date: response.daily.time[0],
-                    min_temp: response.daily.temperature_2m_min[0],
-                    max_temp: response.daily.temperature_2m_max[0],
-                  },
                   today: {
                     date: response.current_weather.time,
                     min_temp: response.daily.temperature_2m_min[1],
@@ -63,11 +53,6 @@ const App = () =>{
                     wind_speed: response.current_weather.windspeed,
                     wind_direction: response.current_weather.winddirection,
                   },
-                  tomorrow: {
-                    date: response.daily.time[2],
-                    min_temp: response.daily.temperature_2m_min[2],
-                    max_temp: response.daily.temperature_2m_max[2],
-                  },
                 };
                 setResult(profile);
               });
@@ -75,15 +60,21 @@ const App = () =>{
   };
 
   return (
-    <div>
-      <h1>Weather app</h1>
-      <Form
-        formSubmit={makeSearch}
-        inputChange={handleSearch}
-        inputValue={search}
-      />
-      {result.length !== 0 && <Profile src={result} />}
-    </div>
+    <Box
+      justifyContent={'center'}
+      alignItems={'center'}
+      textAlign={'center'}
+    >
+      <Typography variant='h1' component='h1'>Weather app</Typography>
+      <Box>
+        <Form
+          formSubmit={makeSearch}
+          inputChange={handleSearch}
+          inputValue={search}
+        />
+        {result.length !== 0 && <Profile src={result} />}
+      </Box>
+    </Box>
   );
 };
 
