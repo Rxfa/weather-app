@@ -1,5 +1,4 @@
 import '../assets/weather-icons-master/css/weather-icons.css';
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';

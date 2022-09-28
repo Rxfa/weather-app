@@ -3,6 +3,8 @@ import Form from './components/Form';
 import Profile from './components/Profile';
 import searchService from './services/searchService';
 
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import theme from './themes/theme';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -58,21 +60,28 @@ const App = () =>{
   };
 
   return (
-    <Box
-      justifyContent={'center'}
-      alignItems={'center'}
-      textAlign={'center'}
-    >
-      <Typography variant='h1' component='h1'>Weather app</Typography>
-      <Box>
-        <Form
-          formSubmit={makeSearch}
-          inputChange={handleSearch}
-          inputValue={search}
-        />
-        {result.length !== 0 && <Profile src={result} />}
+    <ThemeProvider theme={theme}>
+      <Box
+        justifyContent={'center'}
+        alignItems={'center'}
+        textAlign={'center'}
+      >
+        <Typography
+          variant='h1'
+          component='h1'
+        >
+          Weather app
+        </Typography>
+        <Box>
+          <Form
+            formSubmit={makeSearch}
+            inputChange={handleSearch}
+            inputValue={search}
+          />
+          {result.length !== 0 && <Profile src={result} />}
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 };
 
