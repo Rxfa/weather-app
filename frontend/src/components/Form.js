@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 
 const Form = ({formSubmit, inputChange, inputValue}) => (
-  <Box>
+  <Box mt={3}>
     <form onSubmit={formSubmit}>
       <TextField
         type="text"

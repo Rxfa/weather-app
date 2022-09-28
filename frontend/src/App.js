@@ -7,6 +7,8 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import theme from './themes/theme';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import IconButton from '@mui/material/IconButton';
 
 const App = () =>{
   const [lat, setLat] = useState(null);
@@ -15,7 +17,6 @@ const App = () =>{
   const [result, setResult] = useState([]);
   const [locationName, setLocationName] = useState('');
   const [countryName, setCountryName] = useState('');
-  const [countryFlag, setCountryFlag] = useState('');
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -33,7 +34,6 @@ const App = () =>{
           setLocationName(response.formatted);
           setCountryName(response.country);
           console.log(`lat - ${lat}\nlong - ${lon}`);
-          console.log(`country flag url - ${countryFlag}`);
 
           if (lon && lat) {
             searchService.getWeather(lat, lon)
@@ -41,7 +41,6 @@ const App = () =>{
                   const profile = {
                     name: locationName,
                     country: countryName,
-                    country_flag: countryFlag,
                     unit: response.daily_units.temperature_2m_min,
                     timezone: response.timezone,
                     today: {
@@ -80,6 +79,18 @@ const App = () =>{
           />
           {result.length !== 0 && <Profile src={result} />}
         </Box>
+        <IconButton
+          variant={'outlined'}
+          href={'https://github.com/Rxfa'}
+        >
+          <GitHubIcon />
+        </IconButton>
+        <Typography
+          variant={'subtitle2'}
+          component={'subtitle2'}
+        >
+          Made by Rxfa
+        </Typography>
       </Box>
     </ThemeProvider>
   );
