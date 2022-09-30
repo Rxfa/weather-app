@@ -1,14 +1,15 @@
+import './index.css';
 import {useState} from 'react';
 import Form from './components/Form';
 import Profile from './components/Profile';
+import Footer from './components/Footer';
 import searchService from './services/searchService';
 
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import theme from './themes/theme';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import IconButton from '@mui/material/IconButton';
+
 
 const App = () =>{
   const [lat, setLat] = useState(null);
@@ -79,18 +80,7 @@ const App = () =>{
           />
           {result.length !== 0 && <Profile src={result} />}
         </Box>
-        <IconButton
-          variant={'outlined'}
-          href={'https://github.com/Rxfa'}
-        >
-          <GitHubIcon />
-        </IconButton>
-        <Typography
-          variant={'subtitle2'}
-          component={'subtitle2'}
-        >
-          Made by Rxfa
-        </Typography>
+        <Footer/>
       </Box>
     </ThemeProvider>
   );

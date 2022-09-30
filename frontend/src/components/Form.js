@@ -19,6 +19,7 @@ const Form = ({formSubmit, inputChange, inputValue}) => (
           endAdornment: (
             <InputAdornment position="end">
               <IconButton
+                color="primary"
                 variant="outlined"
                 size="large"
                 type="submit">
