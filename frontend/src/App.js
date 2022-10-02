@@ -10,7 +10,6 @@ import theme from './themes/theme';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-
 const App = () =>{
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
@@ -66,6 +65,12 @@ const App = () =>{
         justifyContent={'center'}
         alignItems={'center'}
         textAlign={'center'}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: 'inherit',
+          width: 'inherit',
+        }}
       >
         <Typography
           variant='h1'

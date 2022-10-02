@@ -108,12 +108,17 @@ The info displayed is:
 
 ## Roadmap
 
-[x] - Show local time
-[x] - Icons shown according to the local weather conditions
-[ ] - Dark/light mode
-[ ] - Ability to change temperature and speed units
-[ ] - Centered search bar
-[ ] - Search bar autocomplete
+- [x] - Show local time
+
+- [x] - Icons shown according to the local weather conditions
+
+- [x] - Centered search bar
+
+- [ ] - Dark/light mode
+
+- [ ] - Ability to change temperature and speed units
+
+- [ ] - Search bar autocomplete
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

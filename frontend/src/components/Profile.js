@@ -4,11 +4,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import theme from '../themes/theme';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import '@fortawesome/fontawesome-free-solid';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import AirIcon from '@mui/icons-material/Air';
-import ThermostatIcon from '@mui/icons-material/Thermostat';
 import iconSwitch from './WeatherIcon';
 
 

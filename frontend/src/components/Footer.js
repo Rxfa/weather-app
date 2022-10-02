@@ -7,23 +7,23 @@ const Footer = () => (
   <Box
     textAlign={'center'}
     sx={{
+      height: 'fit-content',
       width: '100%',
-      position: 'fixed',
+      position: 'absolute',
       bottom: 0,
     }}>
     <IconButton
       variant={'outlined'}
-      href={'https://github.com/Rxfa'}
+      href={'https://github.com/rxfa'}
     >
       <GitHubIcon
-        size={'large'}
         color={'primary'}
       />
     </IconButton>
     <Typography
-      variant={'subtitle2'}
+      variant={'subtitle1'}
       component={'h2'}
-      color={'secondary'}
+      color={'primary'}
     >
           Made by Rxfa
     </Typography>

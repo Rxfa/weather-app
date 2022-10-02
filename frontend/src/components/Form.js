@@ -7,7 +7,13 @@ import Box from '@mui/material/Box';
 
 
 const Form = ({formSubmit, inputChange, inputValue}) => (
-  <Box mt={3}>
+  <Box
+    mt={3}
+    sx={{
+      alignItems: 'center',
+      width: 'fit-content',
+    }}
+  >
     <form onSubmit={formSubmit}>
       <TextField
         type="text"
