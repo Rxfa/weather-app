@@ -53,14 +53,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+![product-screenshot](./frontend/src/assets/screenshots/weatherAppSearch.png)
+
 The app starts by getting the coordinates of a given location with the [Geoapify](https://www.geoapify.com/) API, the coordinates are then sent to the [Open-Meteo](https://open-meteo.com/en) API that will return the weather conditions of the aforementioned location.
 
 The user chooses a location by typing it's name in a search bar.
 
 The info displayed is:
 
-* City and Country name(along with its flag)
-* Weather description and icon
+* City and country name (along with its flag)
+* Local time
+* Different icons according to weather conditions
 * Temperatures (current, min and max)
 * Wind speed
 
@@ -101,6 +104,17 @@ The info displayed is:
    ```
 
 4. Store the API key as an environment variable
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Roadmap
+
+[x] - Show local time
+[x] - Icons shown according to the local weather conditions
+[ ] - Dark/light mode
+[ ] - Ability to change temperature and speed units
+[ ] - Centered search bar
+[ ] - Search bar autocomplete
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
