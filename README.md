@@ -10,7 +10,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br />
 <div align="center">
