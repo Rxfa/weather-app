@@ -51,6 +51,7 @@ const App = () =>{
                       temp: response.current_weather.temperature,
                       wind_speed: response.current_weather.windspeed,
                       wind_direction: response.current_weather.winddirection,
+                      weather_code: response.current_weather.weathercode,
                     },
                   };
                   setResult(profile);

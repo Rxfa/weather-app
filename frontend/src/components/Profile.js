@@ -1,12 +1,15 @@
-import '../assets/weather-icons-master/css/weather-icons.css';
+import 'font-awesome/css/font-awesome.min.css';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import theme from '../themes/theme';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-free-solid';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import AirIcon from '@mui/icons-material/Air';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
+import iconSwitch from './WeatherIcon';
 
 
 const Profile = ({src}) => (
@@ -44,7 +47,7 @@ const Profile = ({src}) => (
           <Typography variant='h4' component='h4'>
             <AccessTimeIcon />
           </Typography>
-          <Typography variant='h4' component='h4'>
+          <Typography mb={3} variant='h4' component='h4'>
             {
               `${
                 new Date()
@@ -53,12 +56,11 @@ const Profile = ({src}) => (
               }`
             }
           </Typography>
-          <i class="wi wi-day-sunny"></i>
+          {iconSwitch(src.today.weather_code)}
           <Typography mt={3} variant='h4' component='h4'>
-            <ThermostatIcon/>
           </Typography>
           <Typography variant='h2' component='h2'>
-            {`${src.today.temp}`}{src.unit}
+            {`${Math.round(src.today.temp)}`}{src.unit}
           </Typography>
         </Grid>
         <Grid xs={6}>
@@ -82,7 +84,7 @@ const Profile = ({src}) => (
             <AirIcon />
           </Typography>
           <Typography variant='h4' component='h4'>
-            {`${src.today.wind_speed} kmh`}
+            {`${src.today.wind_speed} km/h`}
           </Typography>
         </Grid>
       </Grid>
