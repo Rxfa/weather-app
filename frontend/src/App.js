@@ -1,14 +1,17 @@
 import './index.css';
 import {useState} from 'react';
+
+import searchService from './services/searchService';
+
 import Form from './components/Form';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
-import searchService from './services/searchService';
 
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import theme from './themes/theme';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+
 
 const App = () =>{
   const [lat, setLat] = useState(null);

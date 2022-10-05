@@ -52,7 +52,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![product-screenshot](./frontend/src/assets/screenshots/weatherAppSearch.png)
+![product-screenshot](./frontend/src/assets/screenshots/WeatherApp.png)
 
 The app starts by getting the coordinates of a given location with the [Geoapify](https://www.geoapify.com/) API, the coordinates are then sent to the [Open-Meteo](https://open-meteo.com/en) API that will return the weather conditions of the aforementioned location.
 

@@ -1,9 +1,12 @@
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
+
 import theme from '../themes/theme';
+
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+
 import SearchIcon from '@mui/icons-material/Search';
 
 

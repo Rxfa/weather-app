@@ -1,9 +1,14 @@
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
+
 import theme from '../themes/theme';
+
 import Box from '@mui/system/Box';
+
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import IconButton from '@mui/material/IconButton';
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 
 const Footer = () => (
   <ThemeProvider theme={theme}>
