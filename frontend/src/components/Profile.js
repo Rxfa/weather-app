@@ -21,7 +21,7 @@ const Profile = ({src}) => (
       </Typography>
       <img src={`https://countryflagsapi.com/png/${src.country}`}
         alt={`${src.country} flag`}
-        width={'25px'}
+        width={'50px'}
       />
       <Grid
         container
@@ -31,7 +31,7 @@ const Profile = ({src}) => (
           'width': 'fit-content',
           'border': '25px solid inherit',
           'borderRadius': '40px',
-          'boxShadow': 3,
+          'boxShadow': 10,
         }}
         display={'flex'}
         justifyContent={'center'}

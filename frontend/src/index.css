@@ -3,6 +3,8 @@
  }
  body{
    min-height: 100%;
+   background-color: #212121;
+   color: #ffffff;
  }
 
  #root{
