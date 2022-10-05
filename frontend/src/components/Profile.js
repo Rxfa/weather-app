@@ -31,12 +31,12 @@ const Profile = ({src}) => (
           'width': 'fit-content',
           'border': '25px solid inherit',
           'borderRadius': '40px',
-          'boxShadow': 10,
+          'boxShadow': 7,
         }}
         display={'flex'}
         justifyContent={'center'}
         alignItems={'center'}
-        rowSpacing={4}
+        rowSpacing={3}
         columnSpacing={0}
         margin={'25px auto'}
       >
@@ -81,7 +81,7 @@ const Profile = ({src}) => (
             <AirIcon />
           </Typography>
           <Typography variant='h4' component='h4'>
-            {`${src.today.wind_speed} km/h`}
+            {`${Math.round(src.today.wind_speed)} km/h`}
           </Typography>
         </Grid>
       </Grid>
