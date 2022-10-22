@@ -15,21 +15,8 @@ const getWeather = (lat, lon) => {
   const request = axios
       .get(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto&past_days=1`);
   return request.then((response) => {
-    console.log(response.data);
     return response.data;
   });
 };
 
-const getFlag = (country) => {
-  const request = axios.get('https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/by-code.json');
-  return request.then((response) => {
-    const target = () =>{
-    };
-    console.log(response.map((i) => {
-      i.name;
-    }));
-    return target;
-  });
-};
-
-export default {getLocation, getWeather, getFlag};
+export default {getLocation, getWeather};
