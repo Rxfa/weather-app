@@ -1,11 +1,7 @@
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 import theme from '../themes/theme';
-
-import Box from '@mui/system/Box';
-
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import {Box, Typography, IconButton} from '@mui/material';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 

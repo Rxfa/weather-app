@@ -12,7 +12,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const iconSwitch = (code) => {
-  console.log(`code - ${code}`);
   switch (code) {
     case 1:
     case 2:

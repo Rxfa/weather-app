@@ -23,20 +23,17 @@ const App = () =>{
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log(`query: ${event.target.value}`);
     setSearch(event.target.value);
   };
 
   const makeSearch = (event) => {
     event.preventDefault();
-    console.log(`You searched for: ${search}`);
     searchService.getLocation(search)
         .then((response) => {
           setLat(response.lat);
           setLon(response.lon);
           setLocationName(response.formatted);
           setCountryName(response.country);
-          console.log(`lat - ${lat}\nlong - ${lon}`);
 
           if (lon && lat) {
             searchService.getWeather(lat, lon)
